@@ -15,8 +15,8 @@ type Guest struct {
 }
 
 type CreateGuestRequest struct {
-	Name         string `json:"name" binding:"required"`
-	Purpose      string `json:"purpose" binding:"required"`
-	IDCardNumber string `json:"id_card_number" binding:"required"`
-	HostName     string `json:"host_name" binding:"required"`
+	Name         string `json:"name" form:"name" binding:"required"`
+	Purpose      string `json:"purpose" form:"purpose" binding:"required"`
+	IDCardNumber string `json:"id_card_number" form:"id_card_number" binding:"required"`
+	HostName     string `json:"host_name" form:"host_name" binding:"required"`
 }
