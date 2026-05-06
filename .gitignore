@@ -1,7 +1,7 @@
 # ========================
 # Backend (Go)
 # ========================
-backend/guests.db
+backend/guest.db
 backend/uploads/
 backend/*.exe
 backend/*.test
