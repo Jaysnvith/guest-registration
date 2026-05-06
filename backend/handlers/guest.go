@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -28,13 +29,14 @@ func (h *GuestHandler) Create(c *gin.Context) {
 	idCardImage := ""
 	file, err := c.FormFile("id_card_image")
 	if err == nil {
-		filename := filepath.Base(file.Filename)
-		savePath := "./uploads" + filename
+		ext := filepath.Ext(file.Filename)
+		filename := strconv.FormatInt(time.Now().UnixNano(), 10) + ext
+		savePath := "./uploads/" + filename
 		if err := c.SaveUploadedFile(file, savePath); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to save image"})
 			return
 		}
-		idCardImage = savePath
+		idCardImage = filename
 	}
 
 	guest, err := h.Repo.Create(req, idCardImage)
