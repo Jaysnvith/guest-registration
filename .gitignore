@@ -1,0 +1,27 @@
+# ========================
+# Backend (Go)
+# ========================
+backend/guests.db
+backend/uploads/
+backend/*.exe
+backend/*.test
+backend/vendor/
+
+# ========================
+# Frontend (Node / Vite)
+# ========================
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+
+# ========================
+# OS & Editor
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
